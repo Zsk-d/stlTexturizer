@@ -1512,27 +1512,27 @@ function wireEvents() {
 
   // ── Export ──
   const startExport = (format) => {
-    if (sessionStorage.getItem('stlt-no-sponsor') === '1') {
-      handleExport(format);
-      return;
-    }
-    const overlay = document.getElementById('sponsor-overlay');
-    const closeBtn = document.getElementById('sponsor-close');
-    const storeLink = overlay.querySelector('.sponsor-link');
-    overlay.classList.remove('hidden');
-    trapFocus(overlay);
+    // if (sessionStorage.getItem('stlt-no-sponsor') === '1') {
+    handleExport(format);
+    //   return;
+    // }
+    // const overlay = document.getElementById('sponsor-overlay');
+    // const closeBtn = document.getElementById('sponsor-close');
+    // const storeLink = overlay.querySelector('.sponsor-link');
+    // overlay.classList.remove('hidden');
+    // trapFocus(overlay);
 
-    const dismiss = () => {
-      if (document.getElementById('sponsor-dont-show').checked) {
-        sessionStorage.setItem('stlt-no-sponsor', '1');
-      }
-      overlay.classList.add('hidden');
-      handleExport(format);
-    };
+    // const dismiss = () => {
+    //   if (document.getElementById('sponsor-dont-show').checked) {
+    //     sessionStorage.setItem('stlt-no-sponsor', '1');
+    //   }
+    //   overlay.classList.add('hidden');
+    //   handleExport(format);
+    // };
 
-    closeBtn.onclick = dismiss;
-    // Also start processing when the user clicks through to the store
-    storeLink.onclick = () => setTimeout(dismiss, 150);
+    // closeBtn.onclick = dismiss;
+    // // Also start processing when the user clicks through to the store
+    // storeLink.onclick = () => setTimeout(dismiss, 150);
   };
   exportBtn.addEventListener('click', () => startExport('stl'));
   export3mfBtn.addEventListener('click', () => startExport('3mf'));
