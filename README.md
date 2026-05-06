@@ -1,6 +1,6 @@
 # BumpMesh by CNC Kitchen
 
-**在线使用:** https://bumpmesh.com  
+**在线使用:** https://3d.337845818.xyz/  
 **GitHub:** https://github.com/CNCKitchen/stlTexturizer
 **作者:** Stefan Hermann
 
