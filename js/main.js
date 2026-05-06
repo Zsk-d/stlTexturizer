@@ -363,7 +363,7 @@ const imprintClose   = document.getElementById('imprint-close');
 // re-show the popup to all returning visitors who previously dismissed it.
 const WELCOME_LAST_UPDATED = '2026-05-02';
 const WELCOME_STORAGE_KEY  = 'stlt-welcome-seen';
-const welcomeLink     = document.getElementById('welcome-link');
+// const welcomeLink     = document.getElementById('welcome-link');
 const welcomeOverlay  = document.getElementById('welcome-overlay');
 const welcomeClose    = document.getElementById('welcome-close');
 const welcomeGotIt    = document.getElementById('welcome-got-it');
@@ -965,7 +965,7 @@ document.getElementById('theme-toggle').addEventListener('click', () => {
 });
 
 wireEvents();
-showWelcomeIfNeeded();
+// showWelcomeIfNeeded();
 // Sync scale number inputs with the slider's initial position
 scaleUVal.value = posToScale(parseFloat(scaleUSlider.value));
 scaleVVal.value = posToScale(parseFloat(scaleVSlider.value));
@@ -1483,21 +1483,21 @@ function wireEvents() {
   });
 
   // ── License ──
-  licenseLink.addEventListener('click', () => { licenseOverlay.classList.remove('hidden'); trapFocus(licenseOverlay); });
+  // licenseLink.addEventListener('click', () => { licenseOverlay.classList.remove('hidden'); trapFocus(licenseOverlay); });
   licenseClose.addEventListener('click', () => licenseOverlay.classList.add('hidden'));
   licenseOverlay.addEventListener('click', (e) => {
     if (e.target === licenseOverlay) licenseOverlay.classList.add('hidden');
   });
 
   // ── Imprint & Privacy ──
-  imprintLink.addEventListener('click', () => { imprintOverlay.classList.remove('hidden'); trapFocus(imprintOverlay); });
+  // imprintLink.addEventListener('click', () => { imprintOverlay.classList.remove('hidden'); trapFocus(imprintOverlay); });
   imprintClose.addEventListener('click', () => imprintOverlay.classList.add('hidden'));
   imprintOverlay.addEventListener('click', (e) => {
     if (e.target === imprintOverlay) imprintOverlay.classList.add('hidden');
   });
 
   // ── Welcome / What's New ──
-  welcomeLink.addEventListener('click', () => openWelcome({ allowDismissPersist: false }));
+  // welcomeLink.addEventListener('click', () => openWelcome({ allowDismissPersist: false }));
 
   // ── Mesh diagnostics dismiss ──
   meshDiagDismiss.addEventListener('click', () => {
@@ -1506,9 +1506,9 @@ function wireEvents() {
   });
 
   // ── Support banner dismiss ──
-  document.getElementById('store-cta-dismiss').addEventListener('click', () => {
-    document.getElementById('store-cta-wrapper').classList.add('store-cta-hidden');
-  });
+  // document.getElementById('store-cta-dismiss').addEventListener('click', () => {
+  //   document.getElementById('store-cta-wrapper').classList.add('store-cta-hidden');
+  // });
 
   // ── Export ──
   const startExport = (format) => {

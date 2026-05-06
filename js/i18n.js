@@ -2,6 +2,7 @@
 // Only display names live here; full strings are lazy-loaded per language.
 
 export const TRANSLATIONS = {
+  zh: { 'lang.name': '简体中文' },
   en: { 'lang.name': 'English' },
   de: { 'lang.name': 'Deutsch' },
   it: { 'lang.name': 'Italiano' },
@@ -10,12 +11,11 @@ export const TRANSLATIONS = {
   fr: { 'lang.name': 'Français' },
   ja: { 'lang.name': '日本語' },
   ko: { 'lang.name': '한국어' },
-  zh: { 'lang.name': '简体中文' },
 };
 
 // ── Module state ──────────────────────────────────────────────────────────────
 
-let _currentLang = 'en';
+let _currentLang = 'zh';
 const _cache = {};
 
 /**
@@ -46,7 +46,7 @@ async function _loadLang(lang) {
  * Replace {placeholder} tokens with values from `params`.
  */
 export function t(key, params = {}) {
-  const strings  = _cache[_currentLang] ?? _cache.en ?? {};
+  const strings = _cache[_currentLang] ?? _cache.en ?? {};
   const fallback = _cache.en ?? {};
   let str = strings[key] ?? fallback[key] ?? key;
 
@@ -127,7 +127,7 @@ export function applyTranslations() {
  * of text. The caller should surface a visible warning in this case.
  */
 export async function initLang() {
-  const saved   = localStorage.getItem('stlt-lang');
+  const saved = localStorage.getItem('stlt-lang');
   const browser = navigator.language.split('-')[0];
 
   if (saved && TRANSLATIONS[saved]) {
@@ -155,7 +155,7 @@ export async function initLang() {
   // Dev-time sanity check: warn about keys present in English but missing in
   // the active language so translators spot drift early.
   if (location.hostname === 'localhost' || location.hostname === '127.0.0.1') {
-    const en  = _cache.en  ?? {};
+    const en = _cache.en ?? {};
     const cur = _cache[_currentLang] ?? {};
     const missing = Object.keys(en).filter(k => !(k in cur));
     if (_currentLang !== 'en' && missing.length) {
